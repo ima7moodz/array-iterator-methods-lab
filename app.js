@@ -101,9 +101,11 @@ born in the 1500's.
   the years 1500 and 1599.
 */
 
-let veryOldInventors = []
-
 // Complete the exercise in the space below:
+
+let veryOldInventors = inventors.filter(
+  (inventor) => inventor.year >= 1500 && inventor.year < 1600
+)
 
 // Check your work:
 console.log("Exercise 1 my result: ", veryOldInventors)
@@ -157,7 +159,7 @@ the past to those born most recently).
 */
 
 // Complete the exercise in the space below:
-let sortedByBirthYear = inventors.sort((p, b) => p.year - b.year)
+let sortedByBirthYear = inventors.sort((a, b) => a.year - b.year)
 
 // Check your work:
 console.log("Exercise 3 my result: ", sortedByBirthYear)
@@ -190,7 +192,7 @@ from an array of inventor objects
 */
 
 // Complete the exercise in the space below:
-let inventorNamedAda = inventors.find((inventor) => (inventor.first = "Ada"))
+let inventorNamedAda = inventors.find((inventor) => inventor.first === "Ada")
 
 // Check your work:
 console.log("Exercise 4 my result: ", inventorNamedAda)
@@ -214,8 +216,8 @@ Hint: Use the String.prototype.split() method to separate the first and last
 */
 
 // Complete the exercise in the space below:
-let firstLast = people.map((withColon) => {
-  let [first, last] = withColon.split(",")
+let firstLast = people.map((name) => {
+  let [last, first] = name.split(", ")
   return `${first} ${last}`
 })
 // Check your work:
@@ -277,8 +279,9 @@ old or older.
 
 // Complete the exercise in the space below:
 let isAdultPresent = devs.some(
-  (person) => new Date().getFullYear() - person.year >= 18
+  (dev) => new Date().getFullYear() - dev.year >= 18
 )
+
 // Check your work:
 console.log("Exercise 6 my result: ", isAdultPresent)
 console.log("Exercise 6 correct result: ", true)
@@ -298,7 +301,7 @@ Use Array.prototype.every() to determine if every person in the devs array is
 
 // Complete the exercise in the space below:
 let isEveryone19OrOlder = devs.every(
-  (person) => new Date().getFullYear - person.year >= 19
+  (person) => new Date().getFullYear() - person.year >= 19
 )
 
 // Check your work:
@@ -315,7 +318,7 @@ a specific ID 823423 from an array of comment objects.
 */
 
 // Complete the exercise in the space below:
-let commentById = comments.find((Comment) => Comment.id === 823423)
+let commentById = comments.find((comment) => comment.id === 823423)
 
 // Check your work:
 console.log("Exercise 8 my result: ", commentById)
@@ -331,7 +334,7 @@ of comment objects.
 */
 
 // Complete the exercise in the space below:
-let idx = comments.findIndex((Comment) => Comment.id === 123523)
+let idx = comments.findIndex((comment) => comment.id === 123523)
 
 // Check your work:
 console.log("Exercise 9 my result: ", idx)
